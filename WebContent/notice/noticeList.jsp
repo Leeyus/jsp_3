@@ -55,6 +55,23 @@
 		
 	</div>
 	<div class="row">
+		<div>
+			<form class="form-inline" action="./noticeList.jsp">
+				<div class="form-group">
+				<select class="form-control" id="sel1" name="kind">
+			        <option>Title</option>
+				       <option>Contents</option>
+				       <option>Writer</option>
+			      </select>
+					
+					<input type="text"class="form-control" id="search" placeholder="Enter search" name="search">
+				</div>
+					
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+
+		</div>
+	
 		<table class="table table-striped">
 			<tr>
 				<td>Num</td>
@@ -66,7 +83,7 @@
 			<% for(BoardDTO boardDTO : ar){%> 
 			<tr>
 				<td><%=boardDTO.getNum() %></td>
-				<td><%=boardDTO.getTitle() %></td>
+				<td><a href="./noticeSelectOne.jsp?num=<%=boardDTO.getNum()%>"><%=boardDTO.getTitle() %></a></td>
 				<td><%=boardDTO.getWriter() %></td>
 				<td><%=boardDTO.getReg_date() %></td>
 				<td><%=boardDTO.getHit() %></td>
@@ -95,7 +112,15 @@
 		</div >
 		</div>
 	</div>
-
+	
+		<div class="container-fluid">
+			<div class="row">
+			<div class="col-md-1">
+			<a href="noticeWriteForm.jsp" class="btn btn-warning">작성</a>
+			</div>
+			</div>
+		</div>
+		
 </div>
 
 <jsp:include page="../tempu/footer.jsp"></jsp:include>
