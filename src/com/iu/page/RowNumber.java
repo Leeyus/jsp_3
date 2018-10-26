@@ -3,7 +3,7 @@ package com.iu.page;
 public class RowNumber {
 	
 	private int startRow;
-	private int lasttRow;
+	private int lastRow;
 	private Search search;
 	
 	
@@ -13,11 +13,11 @@ public class RowNumber {
 	public void setStartRow(int startRow) {
 		this.startRow = startRow;
 	}
-	public int getLasttRow() {
-		return lasttRow;
+	public int getLastRow() {
+		return lastRow;
 	}
-	public void setLasttRow(int lasttRow) {
-		this.lasttRow = lasttRow;
+	public void setLastRow(int lastRow) {
+		this.lastRow = lastRow;
 	}
 	public Search getSearch() {
 		return search;
@@ -25,6 +25,9 @@ public class RowNumber {
 	public void setSearch(Search search) {
 		this.search = search;
 	}
+	
+	
+	
 	
 	
 

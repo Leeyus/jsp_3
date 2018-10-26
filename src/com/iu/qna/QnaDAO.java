@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.iu.board.BoardDAO;
 import com.iu.board.BoardDTO;
+import com.iu.page.RowNumber;
 
 public class QnaDAO implements BoardDAO {
 
 	@Override
-	public List<BoardDTO> selectList(int startRow, int lastRow, String kind, String search) throws Exception {
+	public List<BoardDTO> selectList(RowNumber rowNumber) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
