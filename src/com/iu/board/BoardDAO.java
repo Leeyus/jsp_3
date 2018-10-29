@@ -3,6 +3,7 @@ package com.iu.board;
 import java.util.List;
 
 import com.iu.page.RowNumber;
+import com.iu.page.Search;
 
 public interface BoardDAO {
 	
@@ -23,6 +24,6 @@ public interface BoardDAO {
 	public int delete(int num) throws Exception;
 	
 	//getCount
-	public int getCount(String kind, String search) throws Exception;
+	public int getCount(Search search) throws Exception;
 
 }

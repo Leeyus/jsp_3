@@ -11,6 +11,7 @@ import com.iu.board.BoardDTO;
 import com.iu.board.BoardReply;
 import com.iu.board.BoardReplyDTO;
 import com.iu.page.RowNumber;
+import com.iu.page.Search;
 import com.iu.util.DBConnector;
 import com.oreilly.servlet.MultipartRequest;
 import com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator;
@@ -126,13 +127,13 @@ public class NoticeDAO implements BoardDAO, BoardReply{
 	}
 
 	@Override
-	public int getCount(String kind, String search) throws Exception {
+	public int getCount(Search search) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql = "select count(num) from notice "
-				+ "where "+kind+" like ?";
+				+ "where "+search.getKind()+" like ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
+		st.setString(1, "%"+search.getSearch()+"%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int result = rs.getInt(1);
