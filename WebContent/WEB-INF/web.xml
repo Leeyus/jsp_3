@@ -8,4 +8,14 @@
     <servlet-name>notice</servlet-name>
     <url-pattern>/notice/*</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>qna</servlet-name>
+  	<servlet-class>com.iu.controller.qnaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>qna</servlet-name>
+  	<url-pattern>/qna/*</url-pattern>
+  
+  </servlet-mapping>
 </web-app>
