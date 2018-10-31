@@ -7,17 +7,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.ActionFoward;
 import com.iu.board.BoardDTO;
+import com.iu.board.BoardService;
 import com.iu.page.MakePager;
 import com.iu.page.Pager;
 import com.iu.page.RowNumber;
 import com.sun.rowset.internal.Row;
 
-public class QnaService {
+public class QnaService implements BoardService{
 	private QnaDAO qnaDAO;
 	
 	public QnaService() {
 		qnaDAO=new QnaDAO();
 	}
+	
+	@Override
+	public ActionFoward insert(HttpServletRequest request, HttpServletResponse response) {
+		ActionFoward actionFoward = new ActionFoward();
+		String method=request.getMethod();
+		if(method.equals("POST")) {
+			
+		}
+		
+		return actionFoward;
+	}
+	@Override
+	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ActionFoward delete(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	//select One
 	public ActionFoward selectOne(HttpServletRequest request, HttpServletResponse response) {
 		ActionFoward actionFoward = new ActionFoward();
@@ -29,8 +53,9 @@ public class QnaService {
 		boardDTO = qnaDAO.selectOne(num);
 		
 		request.setAttribute("dto", boardDTO);
+		request.setAttribute("board", "qna");
 		
-		actionFoward.setPath("../WEB-INF/qna/qnaSelectOne.jsp");
+		actionFoward.setPath("../WEB-INF/view/board/boardSelectOne.jsp");
 		actionFoward.setCheck(true);
 		
 		}catch(Exception e){
@@ -68,7 +93,8 @@ public class QnaService {
 			Pager pager = mk.makePage(totalCount);
 			request.setAttribute("list", ar);
 			request.setAttribute("pager", pager);
-			actionFoward.setPath("../WEB-INF/qna/qnaList.jsp");
+			request.setAttribute("board", "qna");
+			actionFoward.setPath("../WEB-INF/view/board/boardList.jsp");
 		} catch (Exception e) {
 		
 			

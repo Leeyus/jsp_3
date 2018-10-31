@@ -11,7 +11,7 @@
   
   <servlet>
   	<servlet-name>qna</servlet-name>
-  	<servlet-class>com.iu.controller.qnaController</servlet-class>
+  	<servlet-class>com.iu.controller.QnaController</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>qna</servlet-name>

@@ -220,13 +220,12 @@
   </div>
 </nav>
 <%
-request.setCharacterEncoding("UTF-8");
-response.setCharacterEncoding("UTF-8");
+	String board = (String)request.getAttribute("board");
 %>
 
 <div class="container-fluid">
 		<div class="row">
-			<form action="./noticeWriteProcess.jsp" method="post" enctype="multipart/form-data">
+			<form action="./<%=board %>Write.do" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="title">Title:</label> <input type="text"
 						class="form-control" id="title" placeholder="Enter Title"
