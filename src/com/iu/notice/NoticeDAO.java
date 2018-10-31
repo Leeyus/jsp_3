@@ -117,12 +117,11 @@ public class NoticeDAO implements BoardDAO, BoardReply{
 	@Override
 	public int update(BoardDTO boardDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql = "update notice set title=?, contents=?, writer=? where num=?";
+		String sql = "update notice set title=?, contents=? where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, boardDTO.getTitle());
 		st.setString(2, boardDTO.getContents());
-		st.setString(3, boardDTO.getWriter());
-		st.setInt(4, boardDTO.getNum());
+		st.setInt(3, boardDTO.getNum());
 		int result = st.executeUpdate();
 		DBConnector.disConnect(st, con);
 		return result;

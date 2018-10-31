@@ -12,39 +12,45 @@
   <title>Bootstrap Theme Company Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <c:import url="../../../tempu/butt.jsp"></c:import>
+ 
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <c:import url="../../../tempu/head.jsp"></c:import>
 
+
 <div class="container-fluid">
+	<div class="row">
+		<h1>${board } Update</h1>
+	</div>
+
 		<div class="row">
-			<form action="./${board }Write.do" method="post" enctype="multipart/form-data">
+			<form action="./${board}Update.do" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="num" value="${dto.num }">
 				<div class="form-group">
 					<label for="title">Title:</label> <input type="text"
-						class="form-control" id="title" placeholder="Enter Title"
+						class="form-control" value="${dto.title }" id="title" placeholder="Enter Title"
 						name="title">
 				</div>
 				<div class="form-group">
 					<label for="writer">Writer:</label> <input type="text"
-						class="form-control" id="writer"  placeholder="Enter writer"
+						class="form-control" id="writer" disabled="disabled" value="${dto.writer }" placeholder="Enter writer"
 						name="writer" >
 				</div>
 				<div class="form-group">
 				<label for="contents">contents:</label>
-      			<textarea class="form-control" rows="20" id="contents" name="contents"></textarea>
+      			<textarea class="form-control" rows="20" id="contents" name="contents">${dto.contents } </textarea>
 				</div>
 				
+				<c:forEach items="${files}" var = "file" varStatus="i">
 				<div class="form-group">
-					<label for="file">file:</label> <input type="file"
-						class="form-control" id="file"  name="f1" >
+					<label for="file">file:</label> <input type="file" value="${file.oname}"
+						class="form-control" id="file"  name="f${i.count}" >
 				</div>
+				</c:forEach>
 				
-				<div class="form-group">
-					<label for="file">file:</label> <input type="file"
-						class="form-control" id="file"  name="f2" >
-				</div>
 				
 				
 				<button type="submit" class="btn btn-default">Writer</button>
@@ -54,7 +60,7 @@
 	
 
 </div>
-
 <c:import url="../../../tempu/footer.jsp"></c:import>
+
 </body>
 </html>
