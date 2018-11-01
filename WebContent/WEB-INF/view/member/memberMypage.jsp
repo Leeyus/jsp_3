@@ -12,21 +12,15 @@
 <c:import url="../../../tempu/head.jsp"></c:import>
 	<div class="container-fluid">
 		<div class="row">
-		<!-- 로그인 후 -->
-		<c:choose>
-		<c:when test="${not empty member}">
-			<h3>${member.id} 님 환영합니다!!</h3>
-			<a href="./memberLogout.do">Logout</a>
-			<a href="./memberMypage.do">MyPage</a>
-		</c:when>
-		<c:otherwise>
-		<!-- 로그인 전 -->
-			<a href="./memberLogin.do">Login</a>
-			<a href="./memberJoin.do">Join</a>
-		</c:otherwise>
-		</c:choose>
+		<h1>ID : ${member.id }</h1>
+		<h1>Name : ${member.name }</h1>
+		<h1>Email : ${member.email }</h1>
+		<img src="../upload/${member.fname} ">
 		</div>
-	
+		<div class="row">
+			<a href = "memberUpdate.do">수정</a>
+			<a href = "memberDelete.do">탈퇴</a>
+		</div>
 	
 	</div>
 
