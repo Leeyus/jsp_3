@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/error404.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>java.lang.Throwable</exception-type>
+  	<location>/error/error_500.jsp</location>
+  </error-page>
+  
+  
+  
+  <context-param>
+    <param-name>Phone</param-name>
+    <param-value>555-5555</param-value>
+  </context-param>
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>com.iu.filter.CharacterFilter</filter-class>
+    <init-param>
+    	<param-name>encode</param-name>
+    	<param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   <servlet>
     <servlet-name>notice</servlet-name>
     <servlet-class>com.iu.controller.NoticeController</servlet-class>
@@ -11,20 +41,21 @@
   <servlet>
     <servlet-name>qna</servlet-name>
     <servlet-class>com.iu.controller.QnaController</servlet-class>
+    <init-param>
+      <param-name>board</param-name>
+      <param-value>qna</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>qna</servlet-name>
     <url-pattern>/qna/*</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>member</servlet-name>
-  	<servlet-class>com.iu.controller.MemberController</servlet-class>
+    <servlet-name>member</servlet-name>
+    <servlet-class>com.iu.controller.MemberController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>member</servlet-name>
-  	<url-pattern>/member/*</url-pattern>
-  
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member/*</url-pattern>
   </servlet-mapping>
-  
 </web-app>

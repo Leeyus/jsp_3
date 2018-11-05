@@ -102,13 +102,20 @@
 </div>
 	</div>
 	
-		<div class="container-fluid">
-			<div class="row">
-			<div class="col-md-1">
-			<a href="${board }Write.do" class="btn btn-warning">작성</a>
-			</div>
-			</div>
-		</div>
+	<c:choose>
+	<c:when test="${board eq 'notice' }">
+	
+	<c:if test="${not empty member and member.kind eq 'T'}">
+		<c:import url="../../../tempu/write.jsp"></c:import>
+	</c:if>
+	</c:when>
+	<c:otherwise>
+		<c:if test="${not empty member }">
+		<c:import url="../../../tempu/write.jsp"></c:import>
+	</c:if>
+	</c:otherwise>
+	</c:choose>
+	
 		
 </div>
 

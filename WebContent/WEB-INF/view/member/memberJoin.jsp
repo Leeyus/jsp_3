@@ -7,6 +7,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../../../tempu/butt.jsp"></c:import>
+<script type="text/javascript">
+	$(function() {
+		$("#id").change(function() {
+			$("#idCheck").val('f');
+		});
+		
+		$("#join").click(function() {
+			var check =$("#idCheck").val();
+			if(check == 's'){
+				alert("OK");
+			}else{
+				alert("중복확인 체크");
+			}
+		});
+		
+		
+		$("#btn").click(function() {
+			//var id = $("#id").val();
+			var id=document.frm.id.value;
+			window.open("./memberCheckId.do?id="+id,"","width=600, height=500, top=300, left=500");
+		});
+		
+	});
+
+</script>
 </head>
 <body>
 <c:import url="../../../tempu/head.jsp"></c:import>
@@ -14,10 +39,13 @@
 
 <div class="container-fluid">
 		<div class="row">
-			<form action="./memberJoin.do" method="post" enctype="multipart/form-data">
+			<form name="frm" action="./memberJoin.do" method="post" enctype="multipart/form-data">
+				<input type ="hidden" value="f" name="idCheck" id="idCheck">
+			
+			
 				<div class="form-group">
 					<label for="id">ID:</label> <input type="text"
-						class="form-control" id="id" placeholder="Enter id"
+						class="form-control"  id="id" placeholder="Enter id"
 						name="id">
 						<input type="button" id ="btn" class="btn btn-danger" value="중복확인">
 				</div>
@@ -58,7 +86,7 @@
 						class="form-control" id="file"  name="f1" >
 				</div>
 				
-				<button type="submit" class="btn btn-default">회원가입</button>
+				<input type="button" id="join" class="btn btn-default" value="JOIN">
 			</form>
 
 		</div>

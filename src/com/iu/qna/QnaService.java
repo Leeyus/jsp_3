@@ -22,13 +22,9 @@ public class QnaService implements BoardService{
 	
 	@Override
 	public ActionFoward insert(HttpServletRequest request, HttpServletResponse response) {
-		ActionFoward actionFoward = new ActionFoward();
-		String method=request.getMethod();
-		if(method.equals("POST")) {
-			
-		}
 		
-		return actionFoward;
+		
+		return null;
 	}
 	@Override
 	public ActionFoward update(HttpServletRequest request, HttpServletResponse response) {
