@@ -15,8 +15,7 @@
         <li><a href="${pageContext.request.contextPath }/notice/noticeList.do">NOTICE</a></li>
         <li><a href="${pageContext.request.contextPath }/member/memberList.do">MEMBER</a></li>
         <li><a href="${pageContext.request.contextPath }/qna/qnaList.do">QnA</a></li>
-        <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="${pageContext.request.contextPath }/memo/memoList.do">MEMO</a></li>
       </ul>
     </div>
   </div>

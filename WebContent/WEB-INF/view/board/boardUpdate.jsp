@@ -14,6 +14,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <c:import url="../../../tempu/butt.jsp"></c:import>
+  <script type="text/javascript">
+  	$(function() {
+		$(".del").click(function() {
+			 var fnum=$(this).attr("id");
+			 var fname = $(this).attr("title")
+			$.post("../file/fileDelete.do",{fnum:fnum, fname:fname}, function(data) {
+				if(data=='1'){
+					alert("Success");
+					$("#p"+fnum).remove();
+				}else{
+					alert("Fail");
+				}
+			}); 
+			
+		});
+	});
+  </script>
  
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -45,9 +62,9 @@
 				</div>
 				
 				<c:forEach items="${files}" var = "file" varStatus="i">
-				<div class="form-group">
-					<label for="file">file:</label> <input type="file" value="${file.oname}"
-						class="form-control" id="file"  name="f${i.count}" >
+				<div class="form-group" id="p${file.fnum }">
+					<span>${file.oname }</span>
+					<span class="del" id="${file.fnum }" title="${file.fname }">X</span>
 				</div>
 				</c:forEach>
 				
